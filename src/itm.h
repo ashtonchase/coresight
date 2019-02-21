@@ -8,7 +8,11 @@
 #ifndef SRC_ITM_H_
 #define SRC_ITM_H_
 
-#define ITM_BASE_ADDR 0xF8805000
+
+int itm_init(void);
+int _write(int file, char *ptr, int len);
+
+#define ITM_BASE_ADDR 0xF8805000UL
 
 /** Stimulus Port Register 0 */
 #define StimPort00 0x00000000  
@@ -75,7 +79,7 @@
 /** Stimulus Port Register 31 */
 #define StimPort31 0x0000007C  
 /** Trace Enable Register */
-#define TER 0x00000E00  
+#define TER 0x00000E00UL
 /** Trace Trigger Register */
 #define TTR 0x00000E20  
 /** Control Register */
