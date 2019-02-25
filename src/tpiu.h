@@ -8,6 +8,10 @@
 #ifndef SRC_TPIU_H_
 #define SRC_TPIU_H_
 
+#include <stdint.h>
+
+int tpiu_test_walking_ones(uint32_t tpiu_base_addr);
+
 #define TPIU_BASE_ADDR 0xF8803000
 
 /** Supported Port Size Register */
@@ -23,7 +27,16 @@
 /** Supported Test Patterns/Modes Register */
 #define TPIU_SUPPTEST 0x00000200  
 /** Current Test Patterns/Modes Register */
-#define TPIU_CURRENTTEST 0x00000204  
+#define TPIU_CURRENTTEST 0x00000204
+
+#define TPIU_CONTINUOUS_MODE (1<<17)
+#define TPIU_TIMED_MODE (1<<16)
+#define TPIU_FF_00_PATTERN_MODE (1<<3)
+#define TPIU_AA_55_PATTERN_MODE (1<<2)
+#define TPIU_WALKING_ZEROS_MODE (1<<1)
+#define TPIU_WALKING_ONES_MODE (1<<1)
+
+
 /** TPIU Test Pattern Repeat Counter Register */
 #define TPIU_TESTREPEATCOUNT 0x00000208  
 /** Formatter and Flush Status Register */
